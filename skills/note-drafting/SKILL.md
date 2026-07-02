@@ -17,6 +17,7 @@ Do not force the full workflow when the user only wants to draft one note.
 - `memory/account.md`
 - `memory/topics.md`
 - `memory/references.md`
+- `skills/note-drafting/writing-principles.md`
 - `skills/note-drafting/title-formulas.md`
 - `skills/note-drafting/cover-patterns.md`
 - `skills/note-drafting/body-templates.md`
@@ -50,14 +51,17 @@ Problem:
 Outcome:
 ```
 
+Also check value, structure, and reader sense from `writing-principles.md`.
+
 ## Process
 
 1. Choose the content type: pain-solution, tutorial, review, comparison, collection, checklist, or real practice note.
-2. Generate 10 title options using `title-formulas.md`.
-3. Recommend one title and explain why.
-4. Generate 3 cover text options using `cover-patterns.md`.
-5. Recommend one cover and explain why.
-6. Build the body with this structure:
+2. Clarify the value level: WHAT, WHY, and especially HOW.
+3. Generate 10 title options using `title-formulas.md`.
+4. Recommend one title and explain why.
+5. Generate 3 cover text options using `cover-patterns.md`.
+6. Recommend one cover and explain why.
+7. Build the body with this structure:
 
 ```text
 痛点共情 -> 原因点破 -> 给出方案 -> 行动引导
@@ -69,9 +73,15 @@ For detailed notes, use:
 痛点共情 -> 原因点破 -> 给出方案 -> 示例演示 -> 行动引导
 ```
 
-7. Write the full draft using short paragraphs and concrete scenes.
-8. Add tags, keywords, and a comment question.
-9. Add light risk notes.
+When suitable, also use the five-part writing path:
+
+```text
+场景导入 -> 打破认知 -> 核心逻辑 -> 举一反三 -> 回顾总结
+```
+
+8. Write the full draft using short paragraphs and concrete scenes.
+9. Add tags, keywords, and a comment question.
+10. Add light risk notes.
 
 ## Writing Rules
 
@@ -93,7 +103,12 @@ Scene:
 Problem:
 Outcome:
 
-## 2. Title Options
+## 2. Value Check
+WHAT:
+WHY:
+HOW:
+
+## 3. Title Options
 1.
 2.
 3.
@@ -108,7 +123,7 @@ Outcome:
 Recommended title:
 Reason:
 
-## 3. Cover Options
+## 4. Cover Options
 Option A:
 Main text:
 Supporting text:
@@ -130,13 +145,13 @@ Why it fits:
 Recommended cover:
 Reason:
 
-## 4. Body Structure
+## 5. Body Structure
 
-## 5. Full Draft
+## 6. Full Draft
 
-## 6. Tags / Keywords
+## 7. Tags / Keywords
 
-## 7. Comment Question
+## 8. Comment Question
 
-## 8. Risk Notes
+## 9. Risk Notes
 ```
