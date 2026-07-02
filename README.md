@@ -22,9 +22,9 @@ positioning -> reference review -> topic plan -> draft -> review -> data review 
 .
 ├── README.md
 ├── docs/
+│   ├── prd.md
 │   ├── methodology.md
-│   ├── evidence-map.md
-│   └── prd2.md
+│   └── evidence-map.md
 ├── prompts/
 │   ├── system.md
 │   └── modules.md
