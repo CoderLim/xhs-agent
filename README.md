@@ -21,6 +21,7 @@ Codex should then read:
 - `AGENTS.md`
 - `agent/RUNBOOK.md`
 - `memory/state.md`
+- `skills/registry.md`
 - `skills/*/SKILL.md`
 
 The agent will ask only for the missing input needed by the current stage.
@@ -44,15 +45,6 @@ Agent: 这个账号优先面向谁？
 - `xhs-agent 写笔记`: run note drafting.
 - `xhs-agent 风控`: run risk review.
 - `xhs-agent 复盘`: run data review.
-
-## Optional CLI
-
-A small CLI scaffold exists, but it is not the main entry point.
-
-```bash
-pnpm install
-pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
-```
 
 ## MVP Modules
 
@@ -86,6 +78,7 @@ pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
 │   ├── growth-flow.md
 │   └── growth-flow.json
 ├── skills/
+│   ├── registry.md
 │   ├── positioning/
 │   ├── reference-review/
 │   ├── topic-plan/
@@ -94,10 +87,7 @@ pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
 │   └── data-review/
 ├── docs/
 ├── prompts/
-├── rules/
-├── src/
-├── package.json
-└── tsconfig.json
+└── rules/
 ```
 
 ## Core Principles
@@ -111,4 +101,4 @@ pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
 
 ## Current Status
 
-V0.4 Codex-first workflow scaffold is created. The main entry is the short command `启动 xhs-agent`.
+V0.5 Codex-first workflow and skill repository is created. There is no CLI or application runtime; the main entry is the short command `启动 xhs-agent`.
