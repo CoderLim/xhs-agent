@@ -1,3 +1,3 @@
 # Notes
 
-Build a planning assistant for content.
+Build a planning assistant for content plans.
