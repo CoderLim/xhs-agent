@@ -13,9 +13,41 @@ This repository is a workflow repository. When the user says `启动 xhs-agent`,
 - `xhs-agent 风控`: run risk review.
 - `xhs-agent 复盘`: run data review.
 
+## Direct Skill Trigger Protocol
+
+Direct skill commands bypass the full workflow.
+
+When the user clearly asks for one skill, run that skill directly. Do not force the user to start from positioning.
+
+Read `skills/registry.md` before routing a direct command.
+
+Examples:
+
+```text
+xhs-agent 写笔记：用 AI 写周报
+```
+
+Route directly to `skills/note-drafting/SKILL.md`.
+
+```text
+xhs-agent 复盘：阅读 3000，收藏 120，评论 12
+```
+
+Route directly to `skills/data-review/SKILL.md`.
+
+Direct skill rules:
+
+1. Use memory files if available.
+2. Ask only for minimum missing input.
+3. Run only the requested skill.
+4. Save useful output to the matching memory file.
+5. After note drafting, ask whether to run risk review.
+6. After risk review, ask whether to save as publish-ready.
+7. Do not update the full workflow stage unless the user wants to continue the full flow.
+
 ## Core Rule
 
-Ask for only the missing input needed by the current stage.
+Ask for only the missing input needed by the current stage or direct skill.
 
 Use `AskUserQuestion` as the interaction pattern:
 
@@ -146,6 +178,18 @@ If missing, ask:
 你想先写哪一个选题？可以直接回复编号或标题。
 ```
 
+For direct note drafting, if account memory is missing, ask only one minimum question:
+
+```text
+这篇笔记主要写给谁？
+
+A. 普通职场人
+B. 内容创作者
+C. 程序员 / 独立开发者
+D. 学生 / 求职者
+E. 不确定，先按大众用户写
+```
+
 Then use `skills/note-drafting/SKILL.md` and save the result to `memory/drafts.md`.
 
 ## Risk Review Required Input
@@ -181,7 +225,7 @@ Then use `skills/data-review/SKILL.md` and save the result to `memory/learnings.
 
 ## State Updates
 
-After every stage, update `memory/state.md` with:
+After every full workflow stage, update `memory/state.md` with:
 
 - current_stage
 - last_completed_stage
@@ -189,4 +233,4 @@ After every stage, update `memory/state.md` with:
 - next_required_input
 - updated_at
 
-Never skip state updates.
+For direct skill commands, save the output to memory, but do not change the full workflow stage unless the user asks to continue the full workflow.
