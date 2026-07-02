@@ -1,0 +1,35 @@
+{
+  "name": "growth-flow",
+  "stages": [
+    {
+      "id": "positioning",
+      "skill": "skills/positioning/SKILL.md",
+      "next": "referenceReview"
+    },
+    {
+      "id": "referenceReview",
+      "skill": "skills/reference-review/SKILL.md",
+      "next": "topicPlan"
+    },
+    {
+      "id": "topicPlan",
+      "skill": "skills/topic-plan/SKILL.md",
+      "next": "noteDrafting"
+    },
+    {
+      "id": "noteDrafting",
+      "skill": "skills/note-drafting/SKILL.md",
+      "next": "riskReview"
+    },
+    {
+      "id": "riskReview",
+      "skill": "skills/risk-review/SKILL.md",
+      "next": "dataReview"
+    },
+    {
+      "id": "dataReview",
+      "skill": "skills/data-review/SKILL.md",
+      "next": "topicPlan"
+    }
+  ]
+}
