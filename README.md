@@ -28,6 +28,13 @@ positioning -> reference review -> topic plan -> draft -> review -> data review 
 ├── prompts/
 │   ├── system.md
 │   └── modules.md
+├── skills/
+│   ├── positioning/
+│   ├── reference-review/
+│   ├── topic-plan/
+│   ├── note-drafting/
+│   ├── risk-review/
+│   └── data-review/
 ├── rules/
 │   └── risk-control.md
 ├── schemas/
@@ -46,4 +53,4 @@ positioning -> reference review -> topic plan -> draft -> review -> data review 
 
 ## Current Status
 
-V0.1 documentation scaffold is created.
+V0.1 documentation scaffold and skill files are created.
