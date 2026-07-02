@@ -27,6 +27,13 @@ pnpm dev -- --stage=dataReview --views=1000 --saves=80 --comments=10
 
 The CLI stores local state in `data/session.json`.
 
+## Using with coding agents
+
+- Codex-style tools should read `AGENTS.md`.
+- Claude Code should read `CLAUDE.md` and project skills under `.claude/skills/`.
+- The executable flow is controlled by `src/orchestrator.ts`.
+- The human-readable flow is defined in `flows/growth-flow.md`.
+
 ## MVP Modules
 
 1. Positioning
@@ -41,6 +48,10 @@ The CLI stores local state in `data/session.json`.
 ```text
 .
 ├── README.md
+├── AGENTS.md
+├── CLAUDE.md
+├── .claude/
+│   └── skills/
 ├── agent/
 │   └── SYSTEM.md
 ├── data/
@@ -86,4 +97,4 @@ The CLI stores local state in `data/session.json`.
 
 ## Current Status
 
-V0.2 runnable CLI scaffold is created. It does not call any LLM API yet; the next step is to connect the orchestrator to a model provider.
+V0.3 runnable CLI scaffold plus coding-agent instructions are created. It does not call any LLM API yet; the next step is to connect the orchestrator to a model provider.
