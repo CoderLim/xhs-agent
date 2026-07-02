@@ -8,6 +8,70 @@ The goal is to turn account building into a repeatable experiment loop:
 onboarding -> positioning -> reference review -> topic plan -> draft -> review -> data review -> next plan
 ```
 
+## Installation
+
+There is no npm package, CLI, or application runtime. This agent is installed by placing the workflow files in a repository that Codex can read.
+
+### Option 1: Use as a standalone Codex workspace
+
+Clone this repository and open it in Codex:
+
+```bash
+git clone git@github.com:CoderLim/xhs-agent.git
+cd xhs-agent
+```
+
+Then tell Codex:
+
+```text
+启动 xhs-agent
+```
+
+### Option 2: Install into an existing repository
+
+Copy the agent files into your target repository:
+
+```bash
+git clone git@github.com:CoderLim/xhs-agent.git /tmp/xhs-agent
+cd /path/to/your/repo
+cp -R /tmp/xhs-agent/agent .
+cp -R /tmp/xhs-agent/skills .
+cp -R /tmp/xhs-agent/memory .
+cp -R /tmp/xhs-agent/flows .
+cp -R /tmp/xhs-agent/rules .
+cp -R /tmp/xhs-agent/docs .
+cp /tmp/xhs-agent/AGENTS.md .
+```
+
+If your repository already has an `AGENTS.md`, do not overwrite it blindly. Merge the xhs-agent instructions into your existing `AGENTS.md`, especially these sections:
+
+- Short Commands
+- Direct Skill Triggers
+- AskUserQuestion Protocol
+- Files to Read First
+- Memory Files
+
+After copying or merging, open the target repository in Codex and say:
+
+```text
+启动 xhs-agent
+```
+
+### Minimum required files
+
+For Codex to run this agent, keep at least:
+
+```text
+AGENTS.md
+agent/RUNBOOK.md
+agent/SYSTEM.md
+agent/STATE_TEMPLATE.md
+skills/
+memory/
+flows/
+rules/
+```
+
 ## Codex-first usage
 
 Open this repository in Codex and say:
