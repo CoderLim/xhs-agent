@@ -1,40 +1,70 @@
 # Repository Instructions
 
-This repository defines a content planning workflow.
+This repository defines a content planning workflow for Codex.
+
+## Primary Use
+
+This is primarily a workflow repository, not an app repository.
+
+When the user says `启动 xhs-agent`, do not start by editing code. Start the agent workflow.
+
+## Short Commands
+
+- `启动 xhs-agent`: start or resume the workflow.
+- `继续 xhs-agent`: continue from `memory/state.md`.
+- `xhs-agent 定位`: run positioning.
+- `xhs-agent 对标`: run reference review.
+- `xhs-agent 选题`: run topic plan.
+- `xhs-agent 写笔记`: run note drafting.
+- `xhs-agent 风控`: run risk review.
+- `xhs-agent 复盘`: run data review.
 
 ## Main Workflow
 
 Run one stage at a time:
 
-1. positioning
-2. referenceReview
-3. topicPlan
-4. noteDrafting
-5. riskReview
-6. dataReview
+1. onboarding
+2. positioning
+3. referenceReview
+4. topicPlan
+5. noteDrafting
+6. riskReview
+7. dataReview
 
-## Commands
+## AskUserQuestion Protocol
 
-```bash
-pnpm install
-pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
-pnpm dev -- --stage=topicPlan
-pnpm dev -- --stage=noteDrafting --idea="Use AI to finish a weekly report"
-pnpm dev -- --stage=dataReview --views=1000 --saves=80 --comments=10
-```
+When required input is missing, ask the user one question at a time.
+
+Rules:
+
+- Ask only for the current stage.
+- Prefer multiple-choice questions.
+- Use existing memory before asking.
+- Do not ask the user to fill a long form.
+- Do not guess missing user intent.
 
 ## Files to Read First
 
-- README.md
+- agent/RUNBOOK.md
+- memory/state.md
 - agent/SYSTEM.md
 - flows/growth-flow.md
 - skills/*/SKILL.md
-- src/orchestrator.ts
+
+## Memory Files
+
+- `memory/state.md`: current workflow state
+- `memory/account.md`: account positioning
+- `memory/references.md`: reference reviews
+- `memory/topics.md`: topic plans
+- `memory/drafts.md`: drafts and review notes
+- `memory/posts.md`: published post data
+- `memory/learnings.md`: repeated signals and decisions
 
 ## Development Rules
 
 - Keep the workflow explicit.
 - Do not merge stages without user confirmation.
-- Keep CLI output readable.
 - Keep metric interpretation cautious.
-- Prefer simple local data files before adding external services.
+- Prefer memory files for workflow state.
+- Do not write implementation code unless the user asks for code changes.
