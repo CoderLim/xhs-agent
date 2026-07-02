@@ -1,3 +1,3 @@
 # Notes
 
-hello world
+Build a planning assistant.
