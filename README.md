@@ -1,47 +1,68 @@
 # xhs-agent
 
-A methodology, skill, and runnable CLI scaffold for a content planning agent.
+A methodology and skill repository for a Codex-first content planning agent.
 
 The goal is to turn account building into a repeatable experiment loop:
 
 ```text
-positioning -> reference review -> topic plan -> draft -> review -> data review -> next plan
+onboarding -> positioning -> reference review -> topic plan -> draft -> review -> data review -> next plan
 ```
 
-## Quick Start
+## Codex-first usage
+
+Open this repository in Codex and say:
+
+```text
+启动 xhs-agent
+```
+
+Codex should then read:
+
+- `AGENTS.md`
+- `agent/RUNBOOK.md`
+- `memory/state.md`
+- `skills/*/SKILL.md`
+
+The agent will ask only for the missing input needed by the current stage.
+
+Example first run:
+
+```text
+User: 启动 xhs-agent
+Agent: 你想做什么类型的账号？
+User: AI 工具号
+Agent: 这个账号优先面向谁？
+```
+
+## Short Commands
+
+- `启动 xhs-agent`: start or resume the workflow.
+- `继续 xhs-agent`: continue from `memory/state.md`.
+- `xhs-agent 定位`: run positioning.
+- `xhs-agent 对标`: run reference review.
+- `xhs-agent 选题`: run topic plan.
+- `xhs-agent 写笔记`: run note drafting.
+- `xhs-agent 风控`: run risk review.
+- `xhs-agent 复盘`: run data review.
+
+## Optional CLI
+
+A small CLI scaffold exists, but it is not the main entry point.
 
 ```bash
 pnpm install
-pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers" --creatorBackground="frontend developer" --offer="templates and services"
+pnpm dev -- --stage=positioning --niche="AI tools" --reader="office workers"
 ```
-
-Then run the next stages:
-
-```bash
-pnpm dev -- --stage=referenceReview --title="reference title"
-pnpm dev -- --stage=topicPlan
-pnpm dev -- --stage=noteDrafting --idea="Use AI to finish a weekly report"
-pnpm dev -- --stage=riskReview --title="Use AI to finish a weekly report"
-pnpm dev -- --stage=dataReview --views=1000 --saves=80 --comments=10
-```
-
-The CLI stores local state in `data/session.json`.
-
-## Using with coding agents
-
-- Codex-style tools should read `AGENTS.md`.
-- Claude Code should read `CLAUDE.md` and project skills under `.claude/skills/`.
-- The executable flow is controlled by `src/orchestrator.ts`.
-- The human-readable flow is defined in `flows/growth-flow.md`.
 
 ## MVP Modules
 
-1. Positioning
-2. Reference review
-3. Topic planning
-4. Drafting
-5. Risk review
-6. Data review
+1. Onboarding
+2. Positioning
+3. Reference review
+4. Topic planning
+5. Drafting
+6. Risk review
+7. Data review
 
 ## Repo Structure
 
@@ -49,25 +70,21 @@ The CLI stores local state in `data/session.json`.
 .
 ├── README.md
 ├── AGENTS.md
-├── CLAUDE.md
-├── .claude/
-│   └── skills/
 ├── agent/
-│   └── SYSTEM.md
-├── data/
-│   ├── account.example.json
-│   ├── topics.example.json
-│   └── posts.example.json
-├── docs/
-│   ├── prd.md
-│   ├── methodology.md
-│   └── evidence-map.md
+│   ├── SYSTEM.md
+│   ├── RUNBOOK.md
+│   └── STATE_TEMPLATE.md
+├── memory/
+│   ├── state.md
+│   ├── account.md
+│   ├── references.md
+│   ├── topics.md
+│   ├── drafts.md
+│   ├── posts.md
+│   └── learnings.md
 ├── flows/
 │   ├── growth-flow.md
 │   └── growth-flow.json
-├── prompts/
-│   ├── system.md
-│   └── modules.md
 ├── skills/
 │   ├── positioning/
 │   ├── reference-review/
@@ -75,14 +92,10 @@ The CLI stores local state in `data/session.json`.
 │   ├── note-drafting/
 │   ├── risk-review/
 │   └── data-review/
-├── src/
-│   ├── cli.ts
-│   ├── memory.ts
-│   ├── orchestrator.ts
-│   ├── skills.ts
-│   └── types.ts
+├── docs/
+├── prompts/
 ├── rules/
-│   └── risk-control.md
+├── src/
 ├── package.json
 └── tsconfig.json
 ```
@@ -90,6 +103,7 @@ The CLI stores local state in `data/session.json`.
 ## Core Principles
 
 - Start from reader, scene, problem, and outcome.
+- Ask one missing input at a time.
 - Learn from reference examples, but do not copy personal stories or images.
 - Treat metric thresholds as reference points, not laws.
 - Separate method, judgment, and hypothesis.
@@ -97,4 +111,4 @@ The CLI stores local state in `data/session.json`.
 
 ## Current Status
 
-V0.3 runnable CLI scaffold plus coding-agent instructions are created. It does not call any LLM API yet; the next step is to connect the orchestrator to a model provider.
+V0.4 Codex-first workflow scaffold is created. The main entry is the short command `启动 xhs-agent`.
