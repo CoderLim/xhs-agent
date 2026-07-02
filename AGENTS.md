@@ -19,6 +19,24 @@ When the user says `启动 xhs-agent`, do not start by editing code. Start the a
 - `xhs-agent 风控`: run risk review.
 - `xhs-agent 复盘`: run data review.
 
+## Direct Skill Triggers
+
+When the user command clearly matches one skill, run that skill directly.
+
+Examples:
+
+- `xhs-agent 写笔记：用 AI 写周报` -> run `skills/note-drafting/SKILL.md`.
+- `xhs-agent 复盘：阅读 3000，收藏 120，评论 12` -> run `skills/data-review/SKILL.md`.
+
+Rules:
+
+- Read `skills/registry.md` before routing direct skill commands.
+- Do not force the user to start from positioning.
+- Use memory files if available.
+- Ask only for minimum missing input.
+- Save useful output to the matching memory file.
+- Do not change the full workflow state unless the user asks to continue the full workflow.
+
 ## Main Workflow
 
 Run one stage at a time:
@@ -37,7 +55,7 @@ When required input is missing, ask the user one question at a time.
 
 Rules:
 
-- Ask only for the current stage.
+- Ask only for the current stage or direct skill.
 - Prefer multiple-choice questions.
 - Use existing memory before asking.
 - Do not ask the user to fill a long form.
@@ -46,6 +64,7 @@ Rules:
 ## Files to Read First
 
 - agent/RUNBOOK.md
+- skills/registry.md
 - memory/state.md
 - agent/SYSTEM.md
 - flows/growth-flow.md
